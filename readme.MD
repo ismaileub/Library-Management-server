@@ -30,7 +30,7 @@ A RESTful API for managing books and borrow operations in a digital library syst
 
 ### Create Book
 
-- POST `/api/book/create-book`
+- POST `/api/book/`
 - Body: `{ title, author, genre, isbn, copies, ... }`
 
 ### Get Books
@@ -60,6 +60,6 @@ A RESTful API for managing books and borrow operations in a digital library syst
 
 - Borrowing deducts copies, disables availability if 0 copies left
 
-## Video Demo
+## Video explanation
 
 Link: [ video URL]
