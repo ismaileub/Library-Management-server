@@ -23,7 +23,7 @@ A RESTful API for managing books and borrow operations in a digital library syst
 
 1. Clone repo
 2. Run `npm install`
-3. Setup `.env` with DB user and password
+3. Setup `.env` with MongoDB user and password
 4. Run `npm run dev` to start the server
 
 ## API Endpoints
