@@ -10,7 +10,7 @@ app.use("/api/books", bookRoutes);
 app.use("/api/borrow", borrowRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("Welcome to Note App");
+  res.send("Welcome to library management server");
 });
 
 export default app;

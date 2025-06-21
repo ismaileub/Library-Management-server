@@ -8,10 +8,8 @@ borrowRoutes.post("/", async (req: Request, res: Response) => {
   try {
     const { book: bookId, quantity, dueDate } = req.body;
 
-    // ✅ Use the static method to validate and update book
     await Book.BorrowStaticMethod(bookId, quantity);
 
-    // ✅ Create borrow record
     const borrowRecord = await Borrow.create({
       book: bookId,
       quantity,

@@ -1,5 +1,6 @@
-import mongoose, { Model, Schema, model } from "mongoose";
+import mongoose, { Schema } from "mongoose";
 import { Query } from "mongoose";
+import { UpdateQuery } from "mongoose";
 import { BookModel, IBook } from "../interfaces/book.interfaces";
 
 const bookSchema = new Schema(
@@ -68,8 +69,8 @@ bookSchema.pre("save", function (next) {
 
 bookSchema.pre(
   "findOneAndUpdate",
-  function (this: Query<any, any>, next: (err?: Error) => void) {
-    const update = this.getUpdate() as any;
+  function (this: Query<IBook | null, IBook>, next: (err?: Error) => void) {
+    const update = this.getUpdate() as UpdateQuery<IBook>;
 
     const copies = update?.copies ?? update?.$set?.copies;
 
@@ -86,7 +87,7 @@ bookSchema.pre(
   }
 );
 
-// ✅ Static method
+//
 bookSchema.statics.BorrowStaticMethod = async function (
   bookId: string,
   quantity: number

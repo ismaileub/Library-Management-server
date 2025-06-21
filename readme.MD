@@ -63,7 +63,3 @@ A RESTful API for managing books and borrow operations in a digital library syst
 ## Video explanation
 
 Link: [ video URL]
-
-```
-
-```

@@ -1,11 +1,9 @@
-import { Server } from "http";
+// import { Server } from "http";
 import mongoose from "mongoose";
 import app from "./app";
 import dotenv from "dotenv";
 
 dotenv.config();
-
-let server: Server;
 
 const PORT = 5000;
 
@@ -18,7 +16,8 @@ async function main() {
       `mongodb+srv://${user}:${pass}@cluster0.0c9fo.mongodb.net/Library-Management?retryWrites=true&w=majority&appName=Cluster0`
     );
     console.log("Connected to MongoDB Using Mongoose!!");
-    server = app.listen(PORT, () => {
+
+    app.listen(PORT, () => {
       console.log(`App is listening on port ${PORT}`);
     });
   } catch (error) {
