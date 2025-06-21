@@ -31,7 +31,17 @@ A RESTful API for managing books and borrow operations in a digital library syst
 ### Create Book
 
 - POST `/api/book/`
-- Body: `{ title, author, genre, isbn, copies, ... }`
+- Body:
+
+```bash
+{
+  "title": "1984",
+  "author": "George Orwell",
+  "genre": "FICTION",
+  "isbn": "9780451524935",
+  "copies": 5
+}
+```
 
 ### Get Books
 
@@ -40,7 +50,15 @@ A RESTful API for managing books and borrow operations in a digital library syst
 ### Borrow Book
 
 - POST `/api/borrow`
-- Body: `{ book: bookId, quantity, dueDate }`
+- Body:
+
+```bash
+{
+  "book": "bookObjectId",
+  "quantity": 2,
+  "dueDate": "2025-07-18T00:00:00.000Z"
+}
+```
 
 ### Borrow Summary
 
@@ -59,7 +77,3 @@ A RESTful API for managing books and borrow operations in a digital library syst
 ## Business Logic
 
 - Borrowing deducts copies, disables availability if 0 copies left
-
-## Video explanation
-
-Link: [ video URL]
