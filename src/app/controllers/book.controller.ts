@@ -87,12 +87,13 @@ bookRoutes.get("/:bookId", async (req: Request, res: Response) => {
 
     const book = await Book.findById(bookId).exec();
 
-    // if (!book) {
-    //   return res.status(404).json({
-    //     success: false,
-    //     message: "Book not found",
-    //   });
-    // }
+    if (!book) {
+      res.status(404).json({
+        success: false,
+        message: "Book not found",
+      });
+      return;
+    }
 
     res.status(200).json({
       success: true,
@@ -122,12 +123,13 @@ bookRoutes.put("/:bookId", async (req: Request, res: Response) => {
       }
     );
 
-    // if (!updatedBook) {
-    //   return res.status(404).json({
-    //     success: false,
-    //     message: "Book not found",
-    //   });
-    // }
+    if (!updatedBook) {
+      res.status(404).json({
+        success: false,
+        message: "Book not found",
+      });
+      return;
+    }
 
     res.status(200).json({
       success: true,
@@ -147,15 +149,16 @@ bookRoutes.delete("/:bookId", async (req: Request, res: Response) => {
   try {
     const { bookId } = req.params;
 
-    // const deletedBook = await Book.findByIdAndDelete(bookId);
-    await Book.findByIdAndDelete(bookId);
+    const deletedBook = await Book.findByIdAndDelete(bookId);
+    // await Book.findByIdAndDelete(bookId);
 
-    // if (!deletedBook) {
-    //   return res.status(404).json({
-    //     success: false,
-    //     message: "Book not found",
-    //   });
-    // }
+    if (!deletedBook) {
+      res.status(404).json({
+        success: false,
+        message: "Book not found",
+      });
+      return;
+    }
 
     res.status(200).json({
       success: true,
