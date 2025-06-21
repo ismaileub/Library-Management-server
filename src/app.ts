@@ -13,4 +13,12 @@ app.get("/", (req: Request, res: Response) => {
   res.send("Welcome to library management server");
 });
 
+app.use((req: Request, res: Response) => {
+  res.status(404).json({
+    success: false,
+    message: "Route not found",
+    error: "Invalid path",
+  });
+});
+
 export default app;
